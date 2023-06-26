@@ -1,12 +1,12 @@
 name: Docker Image CI
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "" ]
   pull_request_target:
-    branches: [ "main" ]
+    branches: [ "" ]
 jobs:
   build:
-    if: ${{ github.ref == 'refs/heads/main' }}
+    if: github.ref_protected == true
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -21,4 +21,5 @@ jobs:
         with:
           node-version: '14'
       - run: echo "${GITHUB_REF#refs/heads/}"
+      - run: echo "hello"
       
