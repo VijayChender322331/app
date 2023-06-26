@@ -21,4 +21,5 @@ jobs:
         with:
           node-version: '14'
       - run: echo "${GITHUB_REF#refs/heads/}"
+      - run: echo "hello"
       
